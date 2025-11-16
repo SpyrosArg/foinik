@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Background Colors - EXACT from image */
+  --color-foinik-black: #000000;
+  --color-foinik-bg: #0a0f0d;
+  --color-foinik-bg-light: #1a2d24;
+  --color-foinik-sidebar: #0d1410;
+  --color-foinik-card: rgba(18, 25, 21, 0.5);
+  
+  /* Accent Colors */
+  --color-foinik-green: #7dff8f;
+  --color-foinik-green-hover: #8fffa0;
+  --color-foinik-red: #ff5757;
+  
+  /* Text Colors - EXACT from image */
+  --color-foinik-text: #ffffff;
+  --color-foinik-text-secondary: #a8b3ae;
+  --color-foinik-text-muted: #6a7672;
+  --color-foinik-text-dimmed: #5a6662;
+  --color-foinik-text-dark: #4a5854;
+  --color-foinik-text-on-accent: #0a0f0d;
+  
+  /* Legacy compatibility */
+  --color-foinik-bg-primary: #0a0f0d;
+  --color-foinik-bg-secondary: #141f1a;
+  --color-foinik-bg-tertiary: #1a251f;
+  --color-foinik-bg-card: rgba(18, 25, 21, 0.5);
+  --color-foinik-bg-sidebar: #0d1410;
+  --color-foinik-accent: #7dff8f;
+  --color-foinik-accent-hover: #8fffa0;
+  --color-foinik-accent-active: #8fffa0;
+  --color-foinik-accent-muted: rgba(125, 255, 143, 0.08);
+  --color-foinik-text-primary: #ffffff;
+  --color-foinik-text-secondary: #a8b3ae;
+  --color-foinik-text-muted: #6a7672;
+  --color-foinik-positive: #7dff8f;
+  --color-foinik-negative: #ff5757;
+  --color-foinik-success: #7dff8f;
+  --color-foinik-warning: #ffd166;
+  --color-foinik-error: #ff5757;
+  --color-foinik-info: #64b5f6;
+  
+  /* Border & Shadow */
+  --color-foinik-border-subtle: rgba(125, 255, 143, 0.06);
+  --color-foinik-border-medium: rgba(125, 255, 143, 0.15);
+  --color-foinik-border: rgba(125, 255, 143, 0.08);
+  
+  /* Fonts - EXACT from image */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
+  --font-foinik: 'Special Elite', 'Courier New', monospace;
+  
+  /* Border Radius - EXACT from image */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-foinik: 20px;
+  --radius-pill: 20px;
+  
+  /* Shadows - EXACT from image */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-foinik: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-foinik-glow: 0 0 20px rgba(125, 255, 143, 0.15);
+  --shadow-button: 0 4px 12px rgba(125, 255, 143, 0.25);
+  --shadow-button-hover: 0 6px 16px rgba(125, 255, 143, 0.35);
+}
+
+@layer base {
+  * {
+    @apply border-foinik-border-subtle;
+  }
+  
+  body {
+    @apply text-foinik-text;
+    font-family: var(--font-sans);
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at top left, #1a2d24 0%, #0f1813 25%, #0a0f0d 50%, #000000 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  #root {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at top left, #1a2d24 0%, #0f1813 25%, #0a0f0d 50%, #000000 100%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-foinik-text;
+    font-family: var(--font-sans);
+  }
+
+  h1 {
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  
+  /* Monospace for numbers */
+  .tabular-nums,
+  [class*="tabular"] {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Glass effect - EXACT from image */
+  .glass {
+    background: rgba(18, 25, 21, 0.5);
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    border: 1px solid rgba(125, 255, 143, 0.06);
+  }
+  
+  /* Text sizes - EXACT from image */
+  .text-xs { font-size: 10px; }
+  .text-sm { font-size: 13px; }
+  .text-base { font-size: 15px; }
+  .text-lg { font-size: 16px; }
+  .text-xl { font-size: 18px; }
+  .text-2xl { font-size: 20px; }
+  .text-3xl { font-size: 24px; }
+  .text-4xl { font-size: 36px; }
+  .text-huge { font-size: 48px; }
+  .text-massive { font-size: 56px; }
+  .text-decimal { font-size: 40px; }
+}
