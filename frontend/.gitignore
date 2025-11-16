@@ -62,8 +62,7 @@ yarn-error.log*
 dist/
 build/
 
-# Docker
-.dockerignore
+
 
 # OS
 Thumbs.db
